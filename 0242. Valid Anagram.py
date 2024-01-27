@@ -1,6 +1,6 @@
 # 01-27-2024 Leetcode 0242. Valid Anagram
 # https://leetcode.com/problems/valid-anagram/description/
-# Time: 60 secondsish
+# Time: 60 seconds
 
 
 from collections import Counter

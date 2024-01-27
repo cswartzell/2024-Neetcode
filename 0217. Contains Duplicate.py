@@ -1,6 +1,6 @@
 # 01-24-2024 Neetcode150  Leetcode 217. Contains Duplicate
 # https://leetcode.com/problems/contains-duplicate/
-# time: 10 seconds or so
+# time: 10 seconds
 
 # import typing
 from typing import List
