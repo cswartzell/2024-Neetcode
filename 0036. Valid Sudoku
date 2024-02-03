@@ -1,0 +1,35 @@
+# 02-02-2024 Neetcode 0036. Valid Sudoku
+# https://leetcode.com/problems/valid-sudoku/description/
+# Time: 19m Challenge: 3/10
+
+# Classic. Three sets. The "trick" Is coming up with the indexing
+# scheme to get the collection of boxes (rows and cols being easy)
+
+# box = 3*(row // 3 )  + col // 3. 
+# 3*row//3 means row = 0, 3, 6
+# Then we just add the offsets from col//3 to get 1,2 4,5 and 7,8
+
+# BAH. Order of operations. Need to inclose that int//div before the multiplication
+# WHICH IS WHAT I HAD here in the comments, but not in the code:
+# I wrote ( 3 * row //3) + (col // 3) and the first bit done L to R 
+# makes it incorrect
+
+class Solution:
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
+        row_count = collections.defaultdict(set)
+        col_count = collections.defaultdict(set)
+        box_count = collections.defaultdict(set)
+        
+        for row in range(9):
+            for col in range(9):
+                num  = board[row][col]
+                box = (3 * (row//3)) + (col // 3)
+                if num in row_count[row] or num in col_count[col] or num in box_count[box]:
+                    return False
+                
+                row_count[row].add(num)
+                col_count[col].add(num)
+                box_count[box].add(num)
+        
+        return True
+
